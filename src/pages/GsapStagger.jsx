@@ -1,6 +1,26 @@
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+
 const GsapStagger = () => {
   // TODO: Implement the gsap.stagger() method
 
+  useGSAP(() => {
+    const staggerBoxes = document.querySelectorAll('.stagger-box');
+
+    // Animate the stagger boxes with a stagger effect
+    gsap.fromTo(
+      staggerBoxes,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.2, // Stagger delay of 0.2 seconds
+        ease: 'power1.out',
+      }
+    );
+  }
+  , []);
   return (
     <main>
       <h1>GsapStagger</h1>
