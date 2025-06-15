@@ -1,5 +1,31 @@
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 const GsapFromTo = () => {
   // TODO: Implement the gsap.fromTo() method
+
+  useGSAP(() => {
+      const box = document.getElementById("red-box");
+  
+      // Animate the box to move to the right and change color
+    gsap.fromTo(box, {
+        x: 0, // Start position at 0 pixels
+        backgroundColor: "#00ff00", // Start color green
+        duration: 2, // Animation duration in seconds
+        repeat: -1, // Repeat the animation indefinitely
+        yoyo: true, // Make the animation repeat indefinitely
+        rotation: 0, // Start rotation at 0 degrees
+        ease: 'elastic'
+  
+      }, {
+      // To state
+        x: 300, // Move 300 pixels to the right
+        borderRadius: "100%", // Change border radius to make it circular
+        backgroundColor: "#ff0000", // Change color to red
+        rotation: 360, // Rotate the box 360 degrees
+  duration: 2, // Animation duration in seconds
+      });
+    }, []);
+  
 
   return (
     <main>
